@@ -1,5 +1,4 @@
-import { DiceName } from "./modules/enum.js";
-import { ArrayDice } from "./modules/enum.js";
+import { DiceName, ArrayDice } from "./modules/enum.js";
 
 class BauCuaGame {
     constructor() {
@@ -31,7 +30,6 @@ class UserBauCuagame extends BauCuaGame {
         this.coin = 0;
         this.userChoice = [];
     }
-
 
     // Toggle picking when user pick dice
     userPick(diceName, coinBet = 0) {
@@ -74,13 +72,8 @@ class UserBauCuagame extends BauCuaGame {
             isWinPerDice === false && (this.coin -= this.userChoice[i].coinBet);
         }
 
-        console.log("User choice: ", this.userChoice);
-
-        console.log("Your coin: ", this.coin);
-
         return this.getResult();
     }
-
 }
 
 const bauCuaGame = new UserBauCuagame();
@@ -90,4 +83,6 @@ const bauCuaGame = new UserBauCuagame();
 bauCuaGame.userPick(DiceName.TOM, 500);
 // bauCuaGame.userPick(DiceName.GA, 500);
 // bauCuaGame.userPick(DiceName.CUA, 500);
+console.log("Your choice: ", bauCuaGame.userChoice);
 console.log("Result: ", bauCuaGame.roll());
+console.log("Your coin: ", bauCuaGame.coin);    
