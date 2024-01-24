@@ -2,23 +2,22 @@ import { DiceName, ArrayDice } from "./modules/enum.js";
 
 class BauCuaGame {
     constructor() {
-        this.dice1 = null;
-        this.dice2 = null;
-        this.dice3 = null;
+        this.dices = [];
     }
 
     setResult() {
-        this.dice1 = this.getRandomXucXac(ArrayDice.length);
-        this.dice2 = this.getRandomXucXac(ArrayDice.length);
-        this.dice3 = this.getRandomXucXac(ArrayDice.length);
+        var dice1 = this.getRandomDice(ArrayDice.length);
+        var dice2 = this.getRandomDice(ArrayDice.length);
+        var dice3 = this.getRandomDice(ArrayDice.length);
+        this.dices = [dice1, dice2, dice3];
         return true;
     }
 
     getResult() {
-        return [this.dice1, this.dice2, this.dice3];
+        return this.dices;
     }
 
-    getRandomXucXac(max) {
+    getRandomDice(max) {
         const index = Math.floor(Math.random() * max);
         return ArrayDice[index];
     }
